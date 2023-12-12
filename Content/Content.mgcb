@@ -37,11 +37,30 @@
 /processorParam:TextureFormat=Color
 /build:koopatroopa2.png
 
+#begin text.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:text.spritefont
+
 #begin Yoshi Story.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Yoshi Story.wav
+
+#begin yoshiintro.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:yoshiintro.png
 
 #begin yoshijump.png
 /importer:TextureImporter
@@ -55,7 +74,7 @@
 /processorParam:TextureFormat=Color
 /build:yoshijump.png
 
-#begin yoshilose.gif
+#begin yoshilose.jfif
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -65,7 +84,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:yoshilose.gif
+/build:yoshilose.jfif
 
 #begin yoshiloses.wav
 /importer:WavImporter
@@ -73,7 +92,7 @@
 /processorParam:Quality=Best
 /build:yoshiloses.wav
 
-#begin yoshirun.gif
+#begin yoshirun1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,7 +102,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:yoshirun.gif
+/build:yoshirun1.png
+
+#begin yoshirun2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:yoshirun2.png
 
 #begin yoshirunning.wav
 /importer:WavImporter

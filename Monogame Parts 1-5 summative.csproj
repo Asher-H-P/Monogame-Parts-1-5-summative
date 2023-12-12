@@ -14,6 +14,9 @@
   <ItemGroup>
     <None Remove="Content\06 Slider.mp3" />
     <None Remove="Content\26 Game Over.mp3" />
+    <None Remove="Content\yoshilose.gif" />
+    <None Remove="Content\yoshilose.jfif" />
+    <None Remove="Content\yoshirun.gif" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
