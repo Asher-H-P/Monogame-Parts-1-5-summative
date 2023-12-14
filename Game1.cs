@@ -30,11 +30,13 @@ namespace Monogame_Parts_1_5_summative
         Texture2D koopa2;
         Texture2D introscreen;
         Texture2D introscreenbg;
+        Texture2D ground;
         SoundEffect intro;
         SoundEffect run;
         SoundEffect lose;
         Rectangle yoshirnj;
         Rectangle koopawalking;
+        Rectangle theground;
         Vector2 yJump;
         Vector2 kMove;
         Screen screen;
@@ -44,6 +46,8 @@ namespace Monogame_Parts_1_5_summative
         int song1 = 1;
         int song2 = 1;
         int song3 = 1;
+        int yruns = 1;
+        int kruns = 1;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -66,8 +70,9 @@ namespace Monogame_Parts_1_5_summative
                 _graphics.PreferredBackBufferHeight = 500;
                 _graphics.ApplyChanges();
             }
-            yoshirnj = new Rectangle(90, 300, 100, 100);
-            koopawalking = new Rectangle(222, 300, 60, 90);
+            yoshirnj = new Rectangle(90, 350, 100, 100);
+            koopawalking = new Rectangle(432, 354, 60, 90);
+            theground = new Rectangle(0, 443, 800, 60);
             yJump = new Vector2(4, 0);
             kMove = new Vector2(2, 0);
             screen = Screen.Intro;
@@ -88,6 +93,7 @@ namespace Monogame_Parts_1_5_summative
             koopa2 = Content.Load<Texture2D>("koopatroopa2");
             introscreen = Content.Load<Texture2D>("yoshiintro");
             introscreenbg = Content.Load<Texture2D>("introBG");
+            ground = Content.Load<Texture2D>("ground");
             intro = Content.Load<SoundEffect>("Yoshi Story");
             run = Content.Load<SoundEffect>("yoshirunning");
             lose = Content.Load<SoundEffect>("yoshiloses");
@@ -110,8 +116,13 @@ namespace Monogame_Parts_1_5_summative
             }
             else if (screen == Screen.Yoshiruns)
             {
+                _graphics.PreferredBackBufferWidth = 800;
+                _graphics.PreferredBackBufferHeight = 500;
+                _graphics.ApplyChanges();
                 yoshirnj.X += (int)yJump.X;
                 yoshirnj.Y += (int)yJump.Y;
+                koopawalking.X += (int)kMove.X;
+                koopawalking.Y += (int)kMove.Y;
                 if (yoshirnj.Left <= 0 || yoshirnj.Right >= _graphics.PreferredBackBufferWidth)
                 {
                     yJump.X *= -1;
@@ -128,6 +139,7 @@ namespace Monogame_Parts_1_5_summative
                 {
                     kMove.Y *= -1;
                 }
+
                
             }
             base.Update(gameTime);
@@ -159,6 +171,9 @@ namespace Monogame_Parts_1_5_summative
             }
             else if (screen == Screen.Yoshiruns)
             {
+                _graphics.PreferredBackBufferWidth = 800;
+                _graphics.PreferredBackBufferHeight = 500;
+                _graphics.ApplyChanges();
                 MediaPlayer.Pause();
                 while (song2 == 1)
                 {
@@ -166,8 +181,67 @@ namespace Monogame_Parts_1_5_summative
                     song2++;
                 }
                 _spriteBatch.Draw(introscreenbg, new Vector2(0, 0), Color.White);
-                _spriteBatch.Draw(yoshirun1, yoshirnj, Color.White);
+                _spriteBatch.Draw(ground, theground, Color.White);
                 _spriteBatch.Draw(koopa1, koopawalking, Color.White);
+                if (kruns == 0)
+                {
+                    _spriteBatch.Draw(koopa1, koopawalking, Color.White);
+                    kruns++;
+                }
+                else if (kruns <= 7)
+                {
+                    _spriteBatch.Draw(koopa1, koopawalking, Color.White);
+                    kruns++;
+                }
+                else if (kruns >= 8 && kruns <= 15)
+                {
+                    _spriteBatch.Draw(koopa2, koopawalking, Color.White);
+                    kruns++;
+                }
+                else if (kruns == 16)
+                {
+                    _spriteBatch.Draw(koopa2, koopawalking, Color.White);
+                    kruns = 0;
+                }
+                if (mouseState.LeftButton != ButtonState.Pressed)
+                {
+                    if (yruns == 0)
+                    {
+                        _spriteBatch.Draw(yoshirun1, yoshirnj, Color.White);
+                        yruns++;
+                    }
+                    else if (yruns <= 5)
+                    {
+                        _spriteBatch.Draw(yoshirun1, yoshirnj, Color.White);
+                        yruns++;
+                    }
+                    else if (yruns >= 6 && yruns <= 11)
+                    {
+                        _spriteBatch.Draw(yoshirun2, yoshirnj, Color.White);
+                        yruns++;
+                    }
+                    else if (yruns == 12)
+                    {
+                        _spriteBatch.Draw(yoshirun2, yoshirnj, Color.White);
+                        yruns = 0;
+                    }
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    _spriteBatch.Draw(yoshijump, yoshirnj, Color.White);
+                }
+            }
+            else if (screen == Screen.losing)
+            {
+                _graphics.PreferredBackBufferWidth = 358;
+                _graphics.PreferredBackBufferHeight = 358;
+                _graphics.ApplyChanges();
+                while (song3 == 1)
+                {
+                    lose.Play();
+                    song3++;
+                }
+                _spriteBatch.Draw(yoshilose, new Vector2(0, 0), Color.White);
             }
             _spriteBatch.End();
 

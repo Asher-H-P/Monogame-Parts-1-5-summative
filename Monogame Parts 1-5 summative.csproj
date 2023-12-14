@@ -14,6 +14,9 @@
   <ItemGroup>
     <None Remove="Content\06 Slider.mp3" />
     <None Remove="Content\26 Game Over.mp3" />
+    <None Remove="Content\koopatroopa1.png" />
+    <None Remove="Content\koopatroopa2.png" />
+    <None Remove="Content\yoshijump.png" />
     <None Remove="Content\yoshilose.gif" />
     <None Remove="Content\yoshilose.jfif" />
     <None Remove="Content\yoshirun.gif" />
