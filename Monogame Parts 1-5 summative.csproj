@@ -19,6 +19,7 @@
     <None Remove="Content\yoshijump.png" />
     <None Remove="Content\yoshilose.gif" />
     <None Remove="Content\yoshilose.jfif" />
+    <None Remove="Content\yoshiloses.wav" />
     <None Remove="Content\yoshirun.gif" />
   </ItemGroup>
   <ItemGroup>
