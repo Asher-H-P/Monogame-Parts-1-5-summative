@@ -35,6 +35,7 @@ namespace Monogame_Parts_1_5_summative
         SoundEffect intro;
         SoundEffect run;
         SoundEffect lose;
+        SoundEffect koopa;
         Rectangle yoshirnj;
         Rectangle koopawalking;
         Rectangle koopacollision;
@@ -51,6 +52,7 @@ namespace Monogame_Parts_1_5_summative
         int song3 = 1;
         int yruns = 1;
         int kruns = 1;
+        int ksound = 0;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -103,6 +105,7 @@ namespace Monogame_Parts_1_5_summative
             intro = Content.Load<SoundEffect>("Yoshi Story");
             run = Content.Load<SoundEffect>("yoshirunning");
             lose = Content.Load<SoundEffect>("failure");
+            koopa = Content.Load<SoundEffect>("koopanoise");
             writing = Content.Load<SpriteFont>("text");
             cts = Content.Load<SpriteFont>("cts");
         }
@@ -156,6 +159,12 @@ namespace Monogame_Parts_1_5_summative
                 if (koopawalking.Left <= 0 || koopawalking.Right >= _graphics.PreferredBackBufferWidth)
                 {
                     kMove.X *= -1;
+                    ksound++;
+                    if (ksound == 3)
+                    {
+                        koopa.Play();
+                        ksound = 0;
+                    }
                 }
                 if (koopawalking.Top <= 0 || koopawalking.Bottom >= _graphics.PreferredBackBufferHeight)
                 {
@@ -190,8 +199,8 @@ namespace Monogame_Parts_1_5_summative
                 _spriteBatch.Draw(introscreen, new Vector2(0, 0), Color.White);
                 _spriteBatch.DrawString(writing, "Yoshi Hop", new Vector2(37, 403), Color.Black);
                 _spriteBatch.DrawString(writing, "Yoshi Hop", new Vector2(40, 400), Color.Blue);
-                _spriteBatch.DrawString(cts, "click to start", new Vector2(89, 452), Color.Black);
-                _spriteBatch.DrawString(cts, "click to start", new Vector2(90, 450), Color.Blue);
+                _spriteBatch.DrawString(cts, "click to start", new Vector2(95, 452), Color.Black);
+                _spriteBatch.DrawString(cts, "click to start", new Vector2(98, 450), Color.Blue);
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                     intro.Dispose();
@@ -272,6 +281,12 @@ namespace Monogame_Parts_1_5_summative
                     song3++;
                 }
                 _spriteBatch.Draw(yoshilose, new Vector2(0, 0), Color.White);
+                _spriteBatch.DrawString(writing, "You lost", new Vector2(30, 13), Color.Black);
+                _spriteBatch.DrawString(writing, "You lost", new Vector2(33, 10), Color.Blue);
+                _spriteBatch.DrawString(cts, "How could you do this", new Vector2(9, 273), Color.Black);
+                _spriteBatch.DrawString(cts, "How could you do this", new Vector2(12, 270), Color.Blue);
+                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(32, 323), Color.Black);
+                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(35, 320), Color.Blue);
             }
             _spriteBatch.End();
 

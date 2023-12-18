@@ -50,6 +50,12 @@
 /processorParam:TextureFormat=Color
 /build:introBG.png
 
+#begin koopanoise.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:koopanoise.wav
+
 #begin koopatroopa1.png
 /importer:TextureImporter
 /processor:TextureProcessor
