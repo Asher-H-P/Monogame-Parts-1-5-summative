@@ -68,6 +68,18 @@
 /processorParam:TextureFormat=Color
 /build:koopatroopa1.png
 
+#begin koopatroopa1flip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:koopatroopa1flip.png
+
 #begin koopatroopa2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -79,6 +91,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:koopatroopa2.png
+
+#begin koopatroopa2flip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:koopatroopa2flip.png
 
 #begin text.spritefont
 /importer:FontDescriptionImporter
@@ -141,6 +165,12 @@
 /processorParam:TextureFormat=Color
 /build:yoshilose.jfif
 
+#begin yoshinoise.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:yoshinoise.wav
+
 #begin yoshirun1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -153,6 +183,18 @@
 /processorParam:TextureFormat=Color
 /build:yoshirun1.png
 
+#begin yoshirun1flip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:yoshirun1flip.png
+
 #begin yoshirun2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -164,6 +206,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:yoshirun2.png
+
+#begin yoshirun2flip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:yoshirun2flip.png
 
 #begin yoshirunning.wav
 /importer:WavImporter

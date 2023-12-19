@@ -36,6 +36,7 @@ namespace Monogame_Parts_1_5_summative
         SoundEffect run;
         SoundEffect lose;
         SoundEffect koopa;
+        SoundEffect yoshi;
         Rectangle yoshirnj;
         Rectangle koopawalking;
         Rectangle koopacollision;
@@ -45,6 +46,7 @@ namespace Monogame_Parts_1_5_summative
         Vector2 kMove;
         Screen screen;
         MouseState mouseState;
+        KeyboardState buttons;
         private SpriteFont writing;
         private SpriteFont cts;
         int song1 = 1;
@@ -53,6 +55,7 @@ namespace Monogame_Parts_1_5_summative
         int yruns = 1;
         int kruns = 1;
         int ksound = 0;
+        int ysound = 0;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -75,7 +78,7 @@ namespace Monogame_Parts_1_5_summative
                 _graphics.PreferredBackBufferHeight = 500;
                 _graphics.ApplyChanges();
             }
-            yoshirnj = new Rectangle(90, 351, 100, 100);
+            yoshirnj = new Rectangle(90, 339, 90, 85);
             koopawalking = new Rectangle(432, 354, 60, 90);
             koopacollision = new Rectangle(452, 390, 10, 10);
             theground = new Rectangle(0, 443, 800, 60);
@@ -106,6 +109,7 @@ namespace Monogame_Parts_1_5_summative
             run = Content.Load<SoundEffect>("yoshirunning");
             lose = Content.Load<SoundEffect>("failure");
             koopa = Content.Load<SoundEffect>("koopanoise");
+            yoshi = Content.Load<SoundEffect>("yoshinoise");
             writing = Content.Load<SpriteFont>("text");
             cts = Content.Load<SpriteFont>("cts");
         }
@@ -117,6 +121,7 @@ namespace Monogame_Parts_1_5_summative
 
             // TODO: Add your update logic here
             mouseState = Mouse.GetState();
+            buttons = Keyboard.GetState();
             if (screen == Screen.Intro)
             {
                 if (mouseState.LeftButton == ButtonState.Pressed)
@@ -139,20 +144,26 @@ namespace Monogame_Parts_1_5_summative
                 if (yoshirnj.Left <= 0 || yoshirnj.Right >= _graphics.PreferredBackBufferWidth)
                 {
                     yJump.X *= -1;
+                    ysound++;
+                    if (ysound == 5)
+                    {
+                        yoshi.Play();
+                        ysound = 0;
+                    }
                 }
                 if (yoshirnj.Top <= 0 || yoshirnj.Bottom >= _graphics.PreferredBackBufferHeight)
                 {
                     yJump.Y *= -1;
                 }
-                if (mouseState.LeftButton == ButtonState.Pressed && !yoshirnj.Intersects(thesky))
+                if (buttons.IsKeyDown(Keys.W) && !yoshirnj.Intersects(thesky))
                 {
                     yoshirnj.Y += -5;
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed && yoshirnj.Intersects(thesky) && !yoshirnj.Intersects(theground))
+                else if (buttons.IsKeyDown(Keys.W) && yoshirnj.Intersects(thesky) && !yoshirnj.Intersects(theground))
                 {
                     yoshirnj.Y += 4;
                 }
-                else if (mouseState.LeftButton != ButtonState.Pressed && !yoshirnj.Intersects(theground))
+                else if (buttons.IsKeyUp(Keys.W) && !yoshirnj.Intersects(theground))
                 {
                     yoshirnj.Y += 4;
                 }
@@ -201,6 +212,8 @@ namespace Monogame_Parts_1_5_summative
                 _spriteBatch.DrawString(writing, "Yoshi Hop", new Vector2(40, 400), Color.Blue);
                 _spriteBatch.DrawString(cts, "click to start", new Vector2(95, 452), Color.Black);
                 _spriteBatch.DrawString(cts, "click to start", new Vector2(98, 450), Color.Blue);
+                _spriteBatch.DrawString(cts, "press W to jump", new Vector2(83, 472), Color.Black);
+                _spriteBatch.DrawString(cts, "press W to jump", new Vector2(86, 470), Color.Blue);
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                     intro.Dispose();
@@ -242,7 +255,7 @@ namespace Monogame_Parts_1_5_summative
                     _spriteBatch.Draw(koopa2, koopawalking, Color.White);
                     kruns = 0;
                 }
-                if (mouseState.LeftButton != ButtonState.Pressed)
+                if (buttons.IsKeyUp(Keys.W))
                 {
                     if (yruns == 0)
                     {
@@ -265,7 +278,7 @@ namespace Monogame_Parts_1_5_summative
                         yruns = 0;
                     }
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed)
+                else if (buttons.IsKeyDown(Keys.W))
                 {
                     _spriteBatch.Draw(yoshijump, yoshirnj, Color.White);
                 }
