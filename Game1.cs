@@ -158,6 +158,10 @@ namespace Monogame_Parts_1_5_summative
                 if (buttons.IsKeyDown(Keys.W) && !yoshirnj.Intersects(thesky))
                 {
                     yoshirnj.Y += -5;
+                    if (yoshirnj.Intersects(thesky) && buttons.IsKeyDown(Keys.W) && !yoshirnj.Intersects(theground))
+                    {
+                        yoshirnj.Y += 15;
+                    }
                 }
                 else if (buttons.IsKeyDown(Keys.W) && yoshirnj.Intersects(thesky) && !yoshirnj.Intersects(theground))
                 {
@@ -298,8 +302,14 @@ namespace Monogame_Parts_1_5_summative
                 _spriteBatch.DrawString(writing, "You lost", new Vector2(33, 10), Color.Blue);
                 _spriteBatch.DrawString(cts, "How could you do this", new Vector2(9, 273), Color.Black);
                 _spriteBatch.DrawString(cts, "How could you do this", new Vector2(12, 270), Color.Blue);
-                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(32, 323), Color.Black);
-                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(35, 320), Color.Blue);
+                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(32, 313), Color.Black);
+                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(35, 310), Color.Blue);
+                _spriteBatch.DrawString(cts, "Press E to exit", new Vector2(45, 333), Color.Black);
+                _spriteBatch.DrawString(cts, "Press E to exit", new Vector2(48, 330), Color.Blue);
+                if (buttons.IsKeyDown(Keys.E))
+                {
+                    Exit();
+                }
             }
             _spriteBatch.End();
 
