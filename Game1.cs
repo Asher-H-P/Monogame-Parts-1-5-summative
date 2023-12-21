@@ -82,7 +82,7 @@ namespace Monogame_Parts_1_5_summative
             koopawalking = new Rectangle(432, 354, 60, 90);
             koopacollision = new Rectangle(452, 390, 10, 10);
             theground = new Rectangle(0, 443, 800, 60);
-            thesky = new Rectangle(0, 143, 800, 60);
+            thesky = new Rectangle(0, 170, 800, 60);
             yJump = new Vector2(4, 0);
             kMove = new Vector2(2, 0);
             screen = Screen.Intro;
@@ -297,15 +297,15 @@ namespace Monogame_Parts_1_5_summative
                     lose.Play();
                     song3++;
                 }
-                _spriteBatch.Draw(yoshilose, new Vector2(0, 0), Color.White);
-                _spriteBatch.DrawString(writing, "You lost", new Vector2(30, 13), Color.Black);
-                _spriteBatch.DrawString(writing, "You lost", new Vector2(33, 10), Color.Blue);
+                _spriteBatch.Draw(yoshilose, new Vector2(0, 0), Color.SkyBlue);
+                _spriteBatch.DrawString(writing, "You lost", new Vector2(30, 4), Color.Black);
+                _spriteBatch.DrawString(writing, "You lost", new Vector2(33, 1), Color.Red);
                 _spriteBatch.DrawString(cts, "How could you do this", new Vector2(9, 273), Color.Black);
-                _spriteBatch.DrawString(cts, "How could you do this", new Vector2(12, 270), Color.Blue);
+                _spriteBatch.DrawString(cts, "How could you do this", new Vector2(12, 270), Color.Red);
                 _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(32, 313), Color.Black);
-                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(35, 310), Color.Blue);
+                _spriteBatch.DrawString(cts, "Made by Asher H.P.", new Vector2(35, 310), Color.Red);
                 _spriteBatch.DrawString(cts, "Press E to exit", new Vector2(45, 333), Color.Black);
-                _spriteBatch.DrawString(cts, "Press E to exit", new Vector2(48, 330), Color.Blue);
+                _spriteBatch.DrawString(cts, "Press E to exit", new Vector2(48, 330), Color.Red);
                 if (buttons.IsKeyDown(Keys.E))
                 {
                     Exit();

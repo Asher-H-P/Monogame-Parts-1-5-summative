@@ -12,6 +12,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Yoshi.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Content\06 Slider.mp3" />
     <None Remove="Content\26 Game Over.mp3" />
     <None Remove="Content\koopatroopa1.png" />
