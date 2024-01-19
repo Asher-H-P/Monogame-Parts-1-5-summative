@@ -235,9 +235,9 @@ namespace Monogame_Parts_1_5_summative
                     song2++;
                 }
                 _spriteBatch.Draw(transparent, thesky, Color.White);
-                _spriteBatch.Draw(koopa1, koopacollision, Color.White);
                 _spriteBatch.Draw(introscreenbg, new Vector2(0, 0), Color.White);
                 _spriteBatch.Draw(ground, theground, Color.White);
+                _spriteBatch.Draw(koopa1, koopacollision, Color.White);
                 _spriteBatch.Draw(koopa1, koopawalking, Color.White);
                 if (kruns == 0)
                 {
